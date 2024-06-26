@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://2r84nyupj315"]
+
+[ext_resource type="Texture2D" uid="uid://d1xv16x1ocn6m" path="res://assest/tileset/SeedLarge.png" id="1_0xp7o"]
+[ext_resource type="Script" path="res://scripts/food.gd" id="1_opa21"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bokyq"]
+radius = 2.61033
+height = 6.81371
+
+[node name="Food" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_opa21")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.19209e-07)
+rotation = 0.921534
+shape = SubResource("CapsuleShape2D_bokyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(0.428571, 0.423077)
+texture = ExtResource("1_0xp7o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
